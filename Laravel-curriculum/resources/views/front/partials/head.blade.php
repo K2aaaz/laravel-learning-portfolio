@@ -6,13 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="expires" content="604800">
   <meta name="format-detection" content="email=no,telephone=no,address=no">
-  <title>
-    @hasSection('title')
-      @yield('title')
-    @else
-      デフォルトのタイトル
-    @endif
-  </title>
-  <meta name="description" content="トップページのdescriptionです">
+  <title>@yield('title', 'デフォルトのタイトル') | Laravel</title>
+  <meta name="description" content="@yield('description', 'デフォルトのdescriptionです')">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 </head>
