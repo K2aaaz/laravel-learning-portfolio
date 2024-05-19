@@ -141,6 +141,28 @@ body {
     margin-top: 10px;
   }
 
+  .company-list-title,
+  .user-list-title {
+    padding-top: 30px;
+  }
+
+  .company-list,
+  .user-list {
+    margin: 10px 0 0 20px;
+  }
+
+  .company-item:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  .user-item:not(:first-child) {
+    margin-top: 12px;
+  }
+
+  .user-item-company {
+    margin-top: 8px;
+  }
+
   .footer {
     width: 100%;
     text-align: center;
@@ -154,5 +176,5 @@ body {
 }
 
 @media screen and (max-width: 795px) {
-  
+
 }
