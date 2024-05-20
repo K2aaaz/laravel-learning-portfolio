@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Company;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,7 @@ class HomeController extends Controller
 
   //about page
   public function about (): View {
-    return view('front.page.about');
-  }
+    $users = User::with('company')->get();
+    return view('front.page.about', ['users' => $users]);
+ }
 }
