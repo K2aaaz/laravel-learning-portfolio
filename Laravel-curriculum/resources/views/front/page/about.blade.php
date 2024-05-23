@@ -10,7 +10,7 @@
   @foreach ($users as $user)
     <div class="user-item">
       <p class="user-item-name">{{ $user->name }}</p>
-      <p class="user-item-company">所属企業：{{ $user->company->name ?? '未所属' }}</p>
+      <p class="user-item-company">所属企業：{{ $user->company->name }}</p>
     </div>
   @endforeach
   </div>
