@@ -14,10 +14,4 @@ class HomeController extends Controller
     $companies = Company::all();
     return view('front.page.top', ['companies' => $companies]);
   }
-
-  //about page
-  public function about (): View {
-    $users = User::with('company')->get();
-    return view('front.page.about', ['users' => $users]);
- }
 }

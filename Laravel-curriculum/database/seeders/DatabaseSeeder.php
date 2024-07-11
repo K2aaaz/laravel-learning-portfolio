@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
       $this->call([
       CompaniesTableSeeder::class,
       UsersTableSeeder::class,
+      BooksTableSeeder::class,
       ]);
         //User::factory()->create([
         //    'name' => 'Test User',

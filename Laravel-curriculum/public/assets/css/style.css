@@ -93,14 +93,21 @@ img {
 }
 
 a {
-  color: inherit;
+  color: #4e65ba;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 body {
   line-height: 1.5;
 }
 
+li + li {
+  margin-top: 10px;
+}
 
 @media screen and (min-width: 796px) {
   .header {
