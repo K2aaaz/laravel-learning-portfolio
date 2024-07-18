@@ -10,7 +10,8 @@ use App\Models\User;
 class HomeController extends Controller
 {
   //top page
-  public function top (): View {
+  public function top (): View
+  {
     $companies = Company::all();
     return view('front.page.top', ['companies' => $companies]);
   }
