@@ -136,6 +136,18 @@ li + li {
     padding: 30px;
   }
 
+  .container {
+    max-width: 320px;
+  }
+
+  .page-name {
+    margin-bottom: 30px;
+  }
+
+  .page-wrapper {
+    margin-bottom: 20px;
+  }
+  
   .name-wrap {
     margin-top: 30px;
   }
@@ -168,6 +180,28 @@ li + li {
 
   .user-item-company {
     margin-top: 8px;
+  }
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    width: 80px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    flex: 1;
+    width: 100%;
+    padding: 4px;
+  }
+
+  .form-textarea {
+    height: 100px;
   }
 
   .footer {

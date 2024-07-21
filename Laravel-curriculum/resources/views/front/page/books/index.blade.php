@@ -5,14 +5,5 @@
 
 @section('content')
   <h1 class="page-name">著書一覧ページです。</h1>
-  <h2 class="page-wrapper">著書一覧</h2>
-    <ul class="book-list">
-      @foreach ($books as $book)
-      <li>
-        <a href="{{ route('books.show', $book->id) }}">{{ $book->title }}</a>
-        <div>著書：{{ $book->author->name }}</div>
-        <div>コメント：{{ $book->comment }}</div>
-      </li>
-      @endforeach
-    </ul>
+  <a href="{{ route('books.create') }}">新規登録</a>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
 
 class BookController extends Controller
 {
@@ -21,6 +22,8 @@ class BookController extends Controller
    */
   public function create()
   {
+    $users = User::select('id', 'name')->orderBy('name')->get();
+    return view('front.page.books.create', ['users' => $users]);
   }
 
   /**
@@ -28,6 +31,14 @@ class BookController extends Controller
    */
   public function store(Request $request)
   {
+    $validateData = $request->validate([
+      'title' => 'required|max:255',
+      'author_id' => 'required|exists:users,id',
+      'comment' => 'nullable|string',
+    ]);
+
+    $book = Book::create($validateData);
+    return redirect()->route('books.show', $book->id);
   }
 
   /**
@@ -44,6 +55,9 @@ class BookController extends Controller
    */
   public function edit(string $id)
   {
+    $book = Book::findOrFail($id);
+    $users = User::all();
+    return view('front.page.books.edit', ['book' => $book, 'users' => $users]);
   }
 
   /**
@@ -51,6 +65,9 @@ class BookController extends Controller
    */
   public function update(Request $request, string $id)
   {
+    $book = Book::findOrFail($id);
+    $book->update($request->all());
+    return redirect()->route('books.show', $book->id);
   }
 
   /**
