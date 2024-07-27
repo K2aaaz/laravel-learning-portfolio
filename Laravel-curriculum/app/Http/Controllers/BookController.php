@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Book;
 use App\Models\User;
 
@@ -38,7 +39,7 @@ class BookController extends Controller
     ]);
 
     $book = Book::create($validateData);
-    return redirect()->route('books.show', $book->id);
+    return redirect()->route('books.index');
   }
 
   /**
@@ -46,8 +47,12 @@ class BookController extends Controller
    */
   public function show(string $id)
   {
-      $book = Book::with('author')->findOrFail($id);
-      return view('front.page.books.show', ['book' => $book]);
+    try {
+    $book = Book::with('author')->findOrFail($id);
+    return view('front.page.books.show', ['book' => $book]);
+    } catch (ModelNotFoundException $e) {
+      return redirect()->route('books.index')->with('error', '指定されたリソースが見つかりません。');
+    }
   }
 
   /**

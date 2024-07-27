@@ -140,8 +140,12 @@ li + li {
     max-width: 320px;
   }
 
-  .page-name {
+  .page-header {
     margin-bottom: 30px;
+  }
+
+  .page-name {
+    margin-bottom: 4px;
   }
 
   .page-wrapper {
