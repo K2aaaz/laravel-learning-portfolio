@@ -47,12 +47,15 @@ class BookController extends Controller
    */
   public function show(string $id)
   {
-    try {
+//    try {
+//    $book = Book::with('author')->findOrFail($id);
+//    return view('front.page.books.show', ['book' => $book]);
+//    } catch (ModelNotFoundException $e) {
+//      return redirect()->route('books.index')->with('error', '指定されたリソースが見つかりません。');
+//    }
     $book = Book::with('author')->findOrFail($id);
     return view('front.page.books.show', ['book' => $book]);
-    } catch (ModelNotFoundException $e) {
-      return redirect()->route('books.index')->with('error', '指定されたリソースが見つかりません。');
-    }
+
   }
 
   /**

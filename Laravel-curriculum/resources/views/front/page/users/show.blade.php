@@ -26,6 +26,7 @@
           <li>
             <a href="{{ route('books.show', $book->id) }}">{{ $book->title }}</a>
             <div>コメント：{{ $book->comment }}</div>
+          </li>
         @endforeach
       @endif
     </ul>

@@ -11,8 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+      //
     })
     ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->render(function (ModelNotFoundException $e) {
+            return redirect()->route('books.index')->with('error', 'Page not found');
+        });
     })
     ->create();
